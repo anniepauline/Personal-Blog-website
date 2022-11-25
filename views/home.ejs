@@ -1,0 +1,16 @@
+<!-- import header and footer from the partials folder -->
+<!--the scriptlet tag allows us to write js inside the ejs file-->
+<!-- <% used for js code in the ejs file%> -->
+<%-include('partials/header.ejs')-%>
+<h1>Home</h1>
+<p> <%= homeContent %> </p>
+
+<% posts.forEach(function(post) { %>
+<h1> <%=post.title%> </h1>
+  <p>
+    <%=post.content.slice(0,100) +'...' %>
+    <a href = "/posts/<%=post.title%>">Read more</a>
+  </p>
+
+<% }) %>
+<%-include('partials/footer')-%>
